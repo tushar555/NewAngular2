@@ -1,0 +1,115 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="width=device-width initial-scale=1.0 maximum-scale=1.0 user-scalable=no" />
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="format-detection" content="address=no" />
+		
+		<link href="../css/bootstrap.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../css/main.css" />
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>
+Work Details
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content style="background: #F6EFE5">
+<div class="wrapper">
+				<div class="container padLR0">
+					<div class="row">
+						<form>
+							<div class="form-group">
+								<label>Industry Type</label>
+								<select class="full" name="data.industry" [(ngModel)]="data.industry">
+									<option value="{{fetchdata.industry}}" >{{data.industry}}</option>
+								  <option value="Internet/Ecommerce">Internet/Ecommerce</option>
+								</select>
+							</div>
+							<div class="form-group">
+								<label>Functional Area / Department</label>
+								<select class="full" name="data.functional_area" [(ngModel)]="data.functional_area">
+									<option value="{{fetchdata.functional_area}}">{{data.functional_area}}</option>
+								  <option value="IT Software-E-Commerce/Internet Tech">IT Software-E-Commerce/Internet Tech</option>
+								</select>
+							</div>
+							<div class="form-group">
+								<label>Role</label>
+								<select class="full" name="data.role" [(ngModel)]="data.role">
+									<option value="{{data.role}}">{{data.role}}</option>
+								  <option value="Project Mgr-IT/Software">Project Mgr-IT/Software</option>
+								</select>
+							</div> 
+							
+							<div class="form-group">
+								<div class="col-sm-12 col-xs-12 padL0">
+									<label>Desired Job Type</label>
+								</div>
+								<div class="col-xs-6 col-sm-6 padL0">
+									<input id="checkbox1" name="data.job_preference" [(ngModel)]="data.job_preference" type="checkbox"  value="Permanent" />
+									<label for="checkbox1">Permanent</label>
+								</div>
+								<div class="col-xs-6 col-sm-6 padL0">
+									<input id="checkbox2" name="data.job_preference1" [(ngModel)]="data.job_preference1" type="checkbox"  value="Contractual" />
+									<label for="checkbox2">Contractual</label>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-sm-12 col-xs-12 padL0">
+									<label>Desired Employment Type</label>
+								</div>
+								<div class="col-xs-6 col-sm-6 padL0">
+									<input id="checkbox3" type="checkbox" name="data.desired_employment_type" [(ngModel)]="data.desired_employment_type" value="1" />
+									<label for="checkbox3">Full Time</label>
+								</div>
+								<div class="col-xs-6 col-sm-6 padL0">
+									<input id="checkbox4" type="checkbox" name="data.desired_employment_type1" [(ngModel)]="data.desired_employment_type1" value="2" />
+									<label for="checkbox4">Part Time</label>
+								</div>
+							</div>
+							<div class="form-group">
+								<label>Preferred Location</label>
+								<select class="full" name="data.preferred_location" [(ngModel)]="data.preferred_location">
+									<option value="{{data.preferred_location}}">{{data.preferred_location}}</option>
+								  <option>Navi Mumbai</option>
+								</select>
+							</div>	
+							<div class="form-group">
+								<label>Available to Join</label>
+								<select class="full bgGrey" name="data.available_join" [(ngModel)]="data.available_join">
+									<option value="{{data.available_join}}">{{data.available_join}}</option>
+								  <option>Not Specified</option>
+								
+								</select>
+								<span class="f12  padT10 disBlock">Please got to your current employment section to edit your notice period</span>
+							</div>
+							<div class="form-group">
+								<label>Work Permit for USA</label>
+								<select class="full">
+								  <option>Authorized to work in US</option>
+								</select>
+							</div>
+							<div class="form-group">
+								<label>Work Permit for Other Countries</label>
+								<select class="full" name="data.work_authorization" [(ngModel)]="data.work_authorization">
+									<option value="{{data.work_authorization}}">{{data.work_authorization}}</option>
+								  <option>New Zealand</option>
+								</select>
+							</div>							
+						</form>
+					</div>
+				</div>
+				<div class="footer">
+					<div class="container">
+						<div class="row noMar">
+							<div class="col-xs-8 col-sm-6 col-sm-pull-3 col-sm-push-3 col-xs-pull-2 col-xs-push-2">
+								<div class="form-group">
+									<input type="button" class="btn btnBlue" (click)="save(data)" value="Save" />
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+</ion-content>

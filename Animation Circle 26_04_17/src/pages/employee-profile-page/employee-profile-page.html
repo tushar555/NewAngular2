@@ -1,0 +1,111 @@
+<!--
+  Generated template for the EmployeeProfilePage page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+ <link href="../css/bootstrap.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../css/main.css" />
+		<link href="../css/font-awesome.min.css" rel="stylesheet" />
+<ion-header >
+  <ion-toolbar color="recruiter">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>My Profile Page</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only color="royal" (click)="mainhomepage()">
+        <ion-icon name="close"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<!--<ion-header>
+
+  <ion-navbar color="recruiter">
+		<button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>My Profile Page</ion-title>
+   
+  </ion-navbar>
+
+</ion-header>-->
+
+
+<ion-content padding style="background: #F6EFE5">
+	<ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+		<div class="pageWrap">
+			<header class="header proHead">
+				<div class="innerDiv">
+					<!--<img src="img/back.png" style="height: 20px;width:20px;margin-top:15px;margin-left: 15px" menuToggle>-->
+					<div class="row content">
+						<div class="col-xs-4 col-sm-2 padLR0" align="center">
+							<ion-avatar *ngIf="image==''">
+							<img src="img/profile.png" style="height:80px;width:80px; border-radius: 50%;">
+						</ion-avatar>
+						<ion-avatar *ngIf="image!=''">
+							<img src={{image}} style="height:80px;width:80px; border-radius: 50%;">
+						</ion-avatar>
+							<!--<div *ngIf="image==''" >
+								<ion-avatar>
+								<img src="img/profile.png" alt="">
+								</ion-avatar>
+							</div>
+							<div *ngIf="image!=''" >
+									<ion-avatar>
+								<img src={{image}} alt="">
+									</ion-avatar>
+							</div>-->
+						</div>
+						<div class="col-xs-8 col-sm-10 padR0 posRel">
+							<h2>{{fetchdata.name}}</h2>
+							<span>{{fetchdata.current_designation}} @ {{fetchdata.current_company}}</span>
+              <i class="Rightedit" (click)="EditmyProfilePage(fetchdata)"></i>
+						</div>
+					</div>
+				</div>
+			</header>
+			
+			<!-- /header --> 
+			<div class="wrapper">
+				<ul>
+					<li>
+						<div class="row">
+							<div class="col-xs-2 col-sm-1 padR0">
+							  <ion-icon name="call"></ion-icon>
+							</div>
+							<div class="col-xs-10 col-sm-11 padL0 location">
+									<span class="f18">{{fetchdata.mobile}}</span>
+									<!--<span class="f13 colorGrey">Mobile</span>-->
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="row">
+							<div class="col-xs-2 col-sm-1 padR0">
+							  <ion-icon name="navigate"></ion-icon>
+							</div>
+							<div class="col-xs-10 col-sm-11 padL0">
+									<span class="f18">{{fetchdata.current_company_address}}</span>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="row">
+							<div class="col-xs-2 col-sm-1 padR0">
+							<ion-icon name="mail"></ion-icon>
+							</div>
+							<div class="col-xs-10 col-sm-11 padL0">
+                  <span class="f18">{{fetchdata.email}}</span>
+									<!--<span class="f13 colorGrey">Email</span>-->
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+		
+		</div>
+</ion-content>

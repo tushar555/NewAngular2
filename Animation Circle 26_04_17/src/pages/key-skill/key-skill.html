@@ -1,0 +1,76 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="width=device-width initial-scale=1.0 maximum-scale=1.0 user-scalable=no" />
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="format-detection" content="address=no" />
+		
+		<link href="../css/bootstrap.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../css/main.css" />
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>
+      Key Skills
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content style="background: #F6EFE5">
+<div class="wrapper">
+				<div class="container padLR0">
+					<div class="row">
+						<form  [formGroup]="myForm" novalidate>
+							<div formArrayName="addresses">
+							<div *ngFor="let address of myForm.controls.addresses.controls; let i=index" class="form-group posRel">
+								<span>Skill {{i + 1}}</span>
+								<span class=" pull-right" *ngIf="myForm.controls.addresses.controls.length > 1" (click)="removeAddress(i)">X</span>
+								 <div class="panel-body" [formGroupName]="i">
+										<ion-row>
+											<ion-col col-10>
+										<input type="text" class="form-control" id="sel1" formControlName="key_skill" placeholder="Type to Add your Skill" />
+										</ion-col>
+										<ion-col col-2>
+										<button ion-button (click)="addAddress()"  class="btnBlue" style="color:#fff;100 px;">Add</button>
+										</ion-col>
+										</ion-row>
+										 <p align="center"  color="recruiter" class="f14 padT10">Click Add to adding new skill.</p>
+								 </div>
+								  
+							</div>
+							</div>
+						 
+							<p class="f14 padT10">Character length of key skill added should not exceed 250 Recruiter may search by a skill.</p>
+							<!--<div class="form-group">
+								<span class="skill">SEO</span>
+								<span class="skill">SEM</span>
+								<span class="skill">DIGITAL MARKETING</span>
+								<span class="skill">CONTENT WRITING</span>
+								<span class="skill">BLOG MANAGEMENT</span>
+								<span class="skill">KEYWORD ANALYSIS</span>
+								<span class="skill">HTML</span>
+								<span class="skill">CSS</span>
+								<span class="skill">JAVASCRIPT</span>
+								<span class="skill">JQUERY</span>
+								<span class="skill">PHP</span>
+								<span class="skill">ADOBE(PHOTOSHOP)</span>
+								<span class="skill">DREAMWEAVER</span>
+								<span class="skill">FIREWORK</span>
+								<span class="skill">CONTRIBUTE</span>
+							</div>-->
+						</form>
+
+					</div>
+				</div>
+               
+ 	<div class="footer">
+					<div class="container">
+						<div class="row noMar">
+							<div class="col-xs-8 col-sm-6 col-sm-pull-3 col-sm-push-3 col-xs-pull-2 col-xs-push-2">
+								<div class="form-group">
+									<input type="button" class="btn btnBlue" (click)="save(myForm)" value="Save" />
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+</ion-content>

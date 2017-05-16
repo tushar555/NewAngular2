@@ -1,0 +1,87 @@
+<!--
+  Generated template for the EditmyProfile page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="width=device-width initial-scale=1.0 maximum-scale=1.0 user-scalable=no" />
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="format-detection" content="address=no" />
+		
+		<link href="../css/bootstrap.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../css/main.css" />
+<ion-header>
+
+  <ion-navbar  color="recruiter">
+    <ion-title>Edit My Profile</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content style="background: #F6EFE5">
+<div class="wrapper">
+				<div class="container padLR0">
+					<div class="row">
+						<form>
+							<div class="col-xs-8 col-xs-push-2 col-xs-push-2 col-sm-4 col-sm-push-4 col-sm-pull-4 padLR0">
+								<div class="col-xs-6 col-xs-push-3 col-xs-push-3 padLR0 ">
+									<div *ngIf="image==''" align="center">
+										<img src="img/profile.png" alt="" style="height:80px;width:80px; border-radius: 50%;">
+									</div>
+									<div *ngIf="image!=''"  align="center">
+										<img src={{image}} alt="" style="height:80px;width:80px; border-radius: 50%;">
+									</div>
+									
+								</div>
+								<div class="form-group padT10">
+									<input type="button" (click)="Upload()" class="btn btnBlue" value="Add Your Photo" />
+								</div>
+							</div>
+							<div class="form-group">
+								<label>Name</label>
+								<input type="text" class="form-control" name="fetchdata.name" [(ngModel)]="fetchdata.name" value="{{fetchdata.name}}" />
+							</div>
+							<div class="form-group">
+								<label>Company Name</label>
+								<input type="text" class="form-control" name="fetchdata.current_company" [(ngModel)]="fetchdata.current_company" value="{{fetchdata.current_company}}" />
+							</div>
+							<div class="form-group">
+								<label>Current Designation</label>
+								<input type="text" class="form-control"  name="fetchdata.current_designation" [(ngModel)]="fetchdata.current_designation" value="{{fetchdata.current_designation}}" />
+							</div>
+							
+							
+							<div class="form-group">
+								<label>Mobile Number</label>
+								<input type="text" class="form-control" name="fetchdata.mobile" [(ngModel)]="fetchdata.mobile" value="{{fetchdata.mobile}}" />
+							</div>
+							<div class="form-group">
+								<label>Email Address</label>
+								<input type="text" class="form-control bgGrey" name="fetchdata.email" [(ngModel)]="fetchdata.email" value="{{fetchdata.email}}"  />
+							</div>
+							
+							<div class="form-group">
+							  <label for="comment">Company Address</label>
+							  <textarea class="form-control" rows="4" name="fetchdata.current_company_address" [(ngModel)]="fetchdata.current_company_address">{{fetchdata.current_company_address}}</textarea>
+							</div>
+						</form>
+
+					</div>
+				</div>
+				<div class="footer">
+					<div class="container">
+						<div class="row noMar">
+							<div class="col-xs-8 col-sm-6 col-sm-pull-3 col-sm-push-3 col-xs-pull-2 col-xs-push-2">
+								<div class="form-group">
+									<input type="button" class="btn btnBlue" (click)="update(fetchdata)" value="Save" />
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+</ion-content>
+

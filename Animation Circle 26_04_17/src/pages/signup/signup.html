@@ -1,0 +1,65 @@
+<link href="../css/bootstrap.min.css" rel="stylesheet" />
+		<link href="../css/main.css" rel="stylesheet" />
+    <script src="../js/bootstrap.js"></script>
+		<script src="../js/bootstrap.min.js"></script>
+		
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>
+      SIGN UP
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content >
+<div class="wrapper login" width="100%">
+			<table border="0" width="100%">
+				<tr>
+					<td>	 
+					
+						<fieldset>
+							<input type="text" name="name" [(ngModel)]="data.name" placeholder="FULL NAME" />
+						</fieldset>
+						<fieldset>
+							<input type="number" name="mobile" [(ngModel)]="data.mobile" placeholder="MOBILE NUMBER" />
+						
+						</fieldset>
+						<fieldset>
+							<input type="text" name="email" [(ngModel)]="data.email" placeholder="EMAIL" />
+						</fieldset>
+						<fieldset>
+							<input type="password" name="password" [(ngModel)]="data.password" placeholder="PASSWORD" />
+
+						</fieldset>
+						<fieldset>
+							<input type="password" name="re_password" [(ngModel)]="data.re_password" placeholder="Re-Type PASSWORD" />
+<hr style="border-color:#cccccc;">
+						</fieldset>	
+             	
+						
+					<!--<div class="form-group col-xs-12">
+						   <div class="register-switch" style="background: #777">
+                <input type="radio" [(ngModel)]="data.is_employee" name="is_employee" value="0" id="sex_f" class="register-switch-input" style="background-color:#3B5998;">
+                  <label for="sex_f" class="register-switch-label">Seeker</label>
+                  <input type="radio" name="is_employee" value="1" id="sex_m" class="register-switch-input" [(ngModel)]="data.is_employee">
+                  <label for="sex_m" class="register-switch-label">Recruiter</label>
+                </div>
+						</div>-->
+									  
+					
+                    <div class="footer">
+					<div class="row">
+						<fieldset class="col-xs-10 col-xs-push-1 col-xs-pull-1 col-sm-push-2 col-sm-pull-2 col-sm-8 noBorder">
+							<input type="submit" (click)="signup()" value="SIGN UP" class="marAuto btn btnRed" />
+						</fieldset>
+					</div>
+				  </div>
+				</td>
+				</tr>
+				
+			</table>	
+				
+			</div>
+		
+</ion-content>

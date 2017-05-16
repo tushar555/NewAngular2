@@ -1,0 +1,32 @@
+<!--
+  Generated template for the WallPost page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>Post on Wall</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding style="background: #F6EFE5">
+  <ion-card>
+    <ion-card-content>
+           <p style="color:#ea3225">* You Cannot Post photos and Youtube link at a time</p><br>
+            <p style="color:#ea3225">* Link must be like: "https://www.youtube.com/watch?v=your_video_id"</p><br>
+         <button ion-button full  style="background-color:#5c8ddb" (click)="Upload()">+ Click To Upload Image</button>
+         <img src={{image}} style="width: 100%;" /><br> 
+         <textarea  name="post_text" [(ngModel)]="post_text" placeholder="Write Something here.." style="width: 100%"></textarea> 
+    </ion-card-content>
+       <p style="text-align: center"><b>OR</b></p><br>
+    <ion-card-content *ngIf="link_upload=='true'">
+       <textarea  name="post_text_links" [(ngModel)]="post_text_links" placeholder="Post Youtube Link here.." style="width: 100%"></textarea> 
+      
+    </ion-card-content> 
+  </ion-card>
+  <input type="submit" ion-button full  style="background-color:#3B5998" (click)="Post(post_text,post_text_links)" value="Upload"/> 
+</ion-content>

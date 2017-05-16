@@ -1,0 +1,124 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="width=device-width initial-scale=1.0 maximum-scale=1.0 user-scalable=no" />
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="format-detection" content="address=no" />
+		
+		<link href="../css/bootstrap.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../css/main.css" />
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>
+      Add Education
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content style="background: #F6EFE5">
+<div class="wrapper">
+				<div class="container padLR0">
+					<div class="row">
+						<form>
+							<div class="form-group">
+								<label>Highest Education</label>
+								<input type="text" class="form-control" placeholder="e.g. MBA/B.TECH" name="education" [(ngModel)]="data.education"/>
+							</div>
+							<div class="form-group">
+								<label>Course</label>
+								<input type="text" class="form-control" placeholder="e.g. Enter your course name" name="course" [(ngModel)]="data.course"/>
+							</div>
+							<div class="form-group">
+								<label>Specialization</label>
+								<input type="text" class="form-control" placeholder="e.g. Enter your specialization" name="specialization" [(ngModel)]="data.specialization"/>
+							</div>
+							<div class="form-group">
+								<label>Institute/University Name</label>
+								<input type="text" class="form-control" placeholder="Enter University name" name="university" [(ngModel)]="data.university"/>
+							</div>
+							<div class="form-group">
+								<label>Year Of Passing</label>
+								<select class="full" name="passout" [(ngModel)]="data.passout">
+								  <option>Select</option>
+									<option value="2040">2040</option>
+									<option value="2040">2040</option>
+									<option value="2038">2038</option>
+									<option value="2037">2037</option>
+									<option value="2036">2036</option>
+									<option value="2035">2035</option>
+									<option value="2034">2034</option>
+									<option value="2033">2033</option>
+									<option value="2032">2032</option>
+									<option value="2031">2031</option>
+									<option value="2030">2030</option>
+									<option value="2029">2029</option>
+									<option value="2028">2028</option>
+									<option value="2027">2027</option>
+									<option value="2026">2026</option>
+									<option value="2025">2025</option>
+									<option value="2024">2024</option>
+									<option value="2023">2023</option>
+									<option value="2022">2022</option>
+									<option value="2021">2021</option>
+									<option value="2020">2020</option>
+									<option value="2019">2019</option>
+									<option value="2018">2018</option>
+									<option value="2017">2017</option>
+								  <option value="2016">2016</option>
+								  <option value="2015">2015</option>
+								  <option value="2014">2014</option>
+									<option value="2013">2013</option>
+									<option value="2012">2012</option>
+									<option value="2011">2011</option>
+									<option value="2010">2010</option>
+									<option value="2009">2009</option>
+									<option value="2008">2008</option>
+									<option value="2007">2007</option>
+									<option value="2006">2006</option>
+									<option value="2005">2005</option>
+									<option value="2004">2004</option>
+									<option value="2003">2003</option>
+									<option value="2002">2002</option>
+									<option value="2001">2001</option>
+								</select>
+							</div>
+							<div align="left">
+									<ion-list no-lines radio-group name="data.time" [(ngModel)]="data.time">
+									<ion-item no-lines style="color: #000">
+										<ion-label style="color:  black">Full Time</ion-label>
+										<ion-radio name="Full_Time" value="Full_Time"></ion-radio>
+									</ion-item>
+									<ion-item no-lines>
+										<ion-label style="color: black">Part Time</ion-label>
+										<ion-radio name="Part_Time" value="Part_Time"></ion-radio>
+									</ion-item>
+									<ion-item no-lines>
+										<ion-label style="color:  black">Distance</ion-label>
+										<ion-radio name="Distance" value="Distance" [disabled]="isDisabled"></ion-radio>
+									</ion-item>
+							</ion-list>
+							</div>
+						   <!--div class="register-switch">
+                <input type="radio" [(ngModel)]="data.time" name="data.time" value="Full_Time" id="Full_Time" class="register-switch-input" >
+                  <label for="Full_Time" class="register-switch-label">Full Time</label>
+                  <input type="radio" name="data.time" value="Part_Time" id="Part_Time" class="register-switch-input" [(ngModel)]="data.time">
+                  <label for="Part_Time" class="register-switch-label">Part Time</label>
+                </div-->    
+							 
+						</form>
+
+					</div>
+				</div>
+				<div class="footer">
+					<div class="container">
+						<div class="row noMar">
+							<div class="col-xs-8 col-sm-6 col-sm-pull-3 col-sm-push-3 col-xs-pull-2 col-xs-push-2">
+								<div class="form-group">
+									<input type="button" class="btn btnBlue" (click)="save()" value="Save" />
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+</ion-content>

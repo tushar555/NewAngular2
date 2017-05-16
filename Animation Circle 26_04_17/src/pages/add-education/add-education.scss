@@ -1,0 +1,34 @@
+page-add-education {
+
+}
+.register-switch {
+  height: 40px;
+  margin-bottom: 15px;
+  padding: 4px;
+  background: #157EFB;
+  border-radius: 2px;
+  
+}
+
+.register-switch-input {
+  display: none;
+}
+
+.register-switch-label {
+  float: left;
+  width: 50%;
+  line-height: 32px;
+  color: white;
+  text-align: center;
+  text-shadow: 0 -1px rgba(black, .2);
+  cursor: pointer;
+
+  .register-switch-input:checked + & {
+    font-weight: 500;
+    color: #434248;
+    text-shadow: 0 1px rgba(white, .5);
+    background: white;
+    border-radius: 2px;
+    
+  }
+}

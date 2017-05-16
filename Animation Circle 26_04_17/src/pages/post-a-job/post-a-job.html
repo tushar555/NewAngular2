@@ -1,0 +1,93 @@
+<link href="../css/bootstrap.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../css/main.css" />
+<ion-header >
+  <ion-toolbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Job Search</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only color="royal" (click)="mainhomepage()">
+        <ion-icon name="close"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content style="background: #F6EFE5">
+ <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>  
+<table border="1" align="center" width="100%" style="margin-top:5px;margin-bottom:5px" class="shadow" bordercolor="#D0D0D0">
+<tr>
+	<td width="10%" valign="middle" align="center" ><img src="img/gps.png" style="width:28px;height:30px;margin-top:5px;margin-bottom:5px" ></td>
+    <td width="45%">
+    	<fieldset>
+			<input type="text" name="city" [(ngModel)]="data.city" (ngModelChange)="onchnage($event)" placeholder="Enter City" style="border:none" />
+		</fieldset>
+    </td>
+    <td width="45%"  >
+    	<fieldset>
+			<input type="text" name="experience" [(ngModel)]="data.experience" placeholder="Enter Experience" style="border:none"/>
+		</fieldset>
+    </td>
+</tr>
+<tr>
+	<td colspan="3" height="10px">
+    	
+    </td>
+</tr>
+<tr>
+<td colspan="3">
+  <table width="100%">
+    <tr>        
+    <td >
+    	<fieldset>
+			<input type="text" name="profile" [(ngModel)]="data.profile" placeholder="Enter a Job Profile" style="border:none" />
+		</fieldset>
+    </td>
+    <td width="40px"  (click)="search()" valign="middle" align="center"><img src="img/search.png" style="height:30px; padding-right: 10px"></td> 
+    </tr>
+  </table>  
+</td>    
+</tr>
+</table>
+
+<div *ngIf="code==false">
+ 
+ <b> No records Found</b>
+</div>
+
+ <span *ngFor="let fd of fetchdata.res">
+<table border="0" (click)="jobdetail(fd.id)" width="100%" height="100px" style="background:#F8F8F8;margin-top:10px" class="shadow" > 
+<tr>
+<td align="center" width="40%" valign="middle"><img src="img/profile.png" style="padding:0px;height: 90px; width: 90px; margin: 2px;border-radius: 50%;">
+</td>
+<td>
+	<table border="0" width="100%" height="100%" padding="0px">
+    <tr>
+    <td colspan="2"><b>{{fd.profile}}</b><br> {{fd.company}}</td>
+    </tr>
+    <tr>
+    <td width="31%" >Name </td>
+    <td width="69%" >: {{fd.name}}</td>
+    </tr>
+    <tr>
+    <td >Experiance </td>
+    <td >: {{fd.experience}} year</td>
+    </tr>
+    <tr>
+    <td >Location </td>
+    <td >: {{fd.city}}</td>
+    </tr>
+    </table>
+    
+</td>
+
+</tr>
+
+</table>
+</span>
+</ion-content>
+<script src="../js/jquery-1.10.1.min.js"></script> 
+		<script src="../js/script.js"></script>

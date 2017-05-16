@@ -1,0 +1,85 @@
+    <link href="../css/bootstrap.min.css" rel="stylesheet" />
+		<link href="../css/main.css" rel="stylesheet" />
+    <script src="../js/bootstrap.js"></script>
+		<script src="../js/bootstrap.min.js"></script>
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>
+      Login
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content >
+ 
+
+  <div class="wrapper login">
+		 <table border="0" width="100%">
+				<tr>
+					<td>	
+						<fieldset>
+							<input type="text"  name="username" [(ngModel)]="data.username" placeholder="EMAIL" />
+						</fieldset>
+						<fieldset>
+							<input type="password" name="password" [(ngModel)]="data.password" placeholder="PASSWORD">
+							<hr style="border-color:#cccccc;">
+						</fieldset>
+						<!--<div class="form-group col-xs-12">
+						   <div class="register-switch" style="background: #777">
+                <input type="radio" [(ngModel)]="data.is_employee" name="is_employee" value="0" id="sex_f" class="register-switch-input" style="background-color:#3B5998;">
+                  <label for="sex_f" class="register-switch-label">Seeker</label>
+                  <input type="radio" name="is_employee" value="1" id="sex_m" class="register-switch-input" [(ngModel)]="data.is_employee">
+                  <label for="sex_m" class="register-switch-label">Recruiter</label>
+                </div>
+						</div>-->
+						
+						<div class="col-xs-12  ">
+              <!--<input type="submit" value="SIGN IN" class="marAuto btn btnBlue" (click)="login()"/>-->
+							<button ion-button icon-left full  (click)="login()"  style="background-color:#3B5998">
+											<ion-icon name="md-log-in"></ion-icon>
+									<p style="color: #fff">	Sign In </p>
+										</button>
+							<a class="floatR padT10" (click)="forgotpass()">Forgot Password ?</a>
+						</div>
+				
+				
+
+					</td>
+				</tr>
+				<tr *ngIf="is_employee==0">
+						<td>
+							
+								<div class="width100Per padB10">
+									<span class="icons"><i class="orIcon"></i></span>
+								</div>
+							
+						</td>
+				</tr>
+				<br><br><br><br>
+				<tr *ngIf="is_employee==0">
+					<td>
+							<div class="col-xs-12 " >
+							<br>
+						<button ion-button icon-left full (click)="fblogin()" style="background-color: #3B5998">
+  <ion-icon name="logo-facebook"></ion-icon>
+ <p style="color: #fff">Sign Up With Facebook</p> 
+</button>
+							</div>						
+					</td>
+				</tr>
+
+				<tr>
+					<td>
+						<br><br>						
+							<h3 class="text-center">Don't have an account</h3><br>
+							<fieldset class="col-xs-10 col-xs-push-1 col-xs-pull-1 col-sm-push-2 col-sm-pull-2 col-sm-8 marAuto noBorder ">
+								<input type="submit" value="SIGN UP" class="marAuto btn btnRed" (click)="signup()"/>
+							</fieldset>
+								<div class="col-xs-12 " >
+							<br>
+							</div>
+					</td>
+				</tr>
+      </table>		
+			</div>  
+</ion-content>

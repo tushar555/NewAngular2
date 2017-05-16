@@ -1,0 +1,56 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="width=device-width initial-scale=1.0 maximum-scale=1.0 user-scalable=no" />
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="format-detection" content="address=no" />
+		
+		<link href="../css/bootstrap.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../css/main.css" />
+<ion-header >
+  <ion-toolbar color="primary">
+		
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>My Chat</ion-title>
+    <ion-buttons end>
+      <!--<button ion-button icon-only color="royal">
+        <ion-icon name="close"></ion-icon>
+      </button>-->
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content padding style="background: #F6EFE5">
+		<ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+	<div *ngIf="list_code=='no_list'">
+		<ion-card>
+			<ion-card-content>
+				<b>There is no chat present!</b> 
+			</ion-card-content>	
+		</ion-card>	 
+	</div>
+		<div *ngIf="list_code=='list'">
+				<ion-list >
+					<ion-item  style="background: #ebebe0" *ngFor="let c of getChat" (click)="specific_chat(c.email,c.name)">
+						<table border="0" width="100%" align="center" *ngIf="c.s_email!=null">
+								<tr>
+									<td rowspan="2" width="70px"><img src="img/user.jpg" style="width: 60px; height: 60px; border-radius: 50%;box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.75);"> </td>
+									<td><b style="font-size: 16px"> Send By </b>:<span style="font-size: 16px"> {{c.s_name}} </span><br> <span style="font-size: 12px; font-style: italic"> {{c.s_email}} </span> </td>
+									
+								</tr>
+						</table>
+						<table border="0" width="100%" align="center" *ngIf="c.r_email!=null">
+								<tr>
+									<td rowspan="2" width="70px"><img src="img/user.jpg" style="width: 60px; height: 60px; border-radius: 50%;box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.75);"> </td>
+									<td><b style="font-size: 16px"> Send To </b>:<span style="font-size: 16px"> {{c.r_name}} </span><br> <span style="font-size: 12px; font-style: italic"> {{c.r_email}} </span> </td>
+									
+								</tr>
+				</table>
+					</ion-item>
+  
+				</ion-list>
+		</div>
+</ion-content>

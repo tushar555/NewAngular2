@@ -1,0 +1,65 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="width=device-width initial-scale=1.0 maximum-scale=1.0 user-scalable=no" />
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="format-detection" content="address=no" />
+		
+		<link href="../css/bootstrap.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../css/main.css" />
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>
+Other Details
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding style="background: #F6EFE5">
+<!--
+<label style="text-align: center; width: 100%"> Welcome &nbsp;{{emp_data.res[0].emp_name}}</label>
+<br>-->
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="margin-20">
+        <h4>Add Language</h4>
+      </div>
+      <form [formGroup]="myForm" novalidate (ngSubmit)="save(myForm)">
+        
+        <!--addresses-->
+        <div formArrayName="addresses">
+
+          
+          <div *ngFor="let address of myForm.controls.addresses.controls; let i=index" class="panel panel-default">
+            <div class="panel-heading">
+              <span>Language {{i + 1}}</span>
+              <span class=" pull-right" *ngIf="myForm.controls.addresses.controls.length > 1" (click)="removeAddress(i)">X</span>
+            </div>
+            <div class="panel-body" [formGroupName]="i">
+              <script>
+              </script>
+              <div class="form-group">
+                  <label for="sel1">Language:</label>
+                  <input type="text" class="form-control" id="sel1" formControlName="language">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="margin-20">
+          <a (click)="addAddress()" style="cursor: default">
+            Add another Language +
+          </a>
+        </div>
+            <br>
+        <div class="margin-20">
+          <button type="submit" class="btn btn-primary pull-right">Submit</button>
+        </div>
+        <div class="clearfix"></div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+</ion-content>

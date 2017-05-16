@@ -1,0 +1,48 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="width=device-width initial-scale=1.0 maximum-scale=1.0 user-scalable=no" />
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="format-detection" content="address=no" />
+		
+		<link href="../css/bootstrap.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../css/main.css" />
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>
+      Profile Summary
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content style="background: #F6EFE5">
+<div class="wrapper">
+				<div class="container">
+					<div class="row">
+						<form>
+							
+							<div class="form-group">
+								<textarea class="form-control" rows="3"  name="data.profile_summary" [(ngModel)]="data.profile_summary">{{data.profile_summary}}</textarea>
+								<span class="colorGrey f12 floatR padT5">0/1000</span>
+							</div>
+							<p class="f14">Your Profile Summary should be menstion the highlights of your career and education, what are your professional inerest and what kind of a career you are looking for.</p>
+							
+							
+							
+							
+						</form>
+
+					</div>
+				</div>
+				<div class="footer">
+					<div class="container">
+						<div class="row noMar">
+							<div class="col-xs-8 col-sm-6 col-sm-pull-3 col-sm-push-3 col-xs-pull-2 col-xs-push-2">
+								<div class="form-group">
+									<input type="button" class="btn btnBlue" (click)="save(data)" value="Save" />
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+</ion-content>

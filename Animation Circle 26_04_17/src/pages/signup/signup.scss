@@ -1,0 +1,35 @@
+page-signup {
+
+}
+
+.register-switch {
+  height: 40px;
+  margin-bottom: 15px;
+  padding: 4px;
+  background: #fff;
+  border-radius: 2px;
+  
+}
+
+.register-switch-input {
+  display: none;
+}
+
+.register-switch-label {
+  float: left;
+  width: 50%;
+  line-height: 32px;
+  color: #306274;
+  text-align: center;
+  text-shadow: 0 -1px rgba(black, .2);
+  cursor: pointer;
+
+  .register-switch-input:checked + & {
+    font-weight: 500;
+    color: #fff;
+    text-shadow: 0 1px rgba(#55888F, .5);
+    background: #55888F;
+    border-radius: 2px;
+    
+  }
+}

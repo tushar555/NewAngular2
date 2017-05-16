@@ -1,0 +1,51 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="width=device-width initial-scale=1.0 maximum-scale=1.0 user-scalable=no" />
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="format-detection" content="address=no" />
+		
+		<link href="../css/bootstrap.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../css/main.css" />
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>      
+Certifications
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content style="background: #F6EFE5">
+<div class="wrapper">
+				<div class="container">
+					<div class="row">
+						<form  [formGroup]="myForm" novalidate >
+							<div formArrayName="addresses">
+								<div *ngFor="let address of myForm.controls.addresses.controls; let i=index" class="form-group posRel">
+									<div class="panel-body" [formGroupName]="i">
+									<ion-row>
+										<ion-col col-10>
+											<input type="text" class="form-control" id="sel1" formControlName="certificate" placeholder="Certificate" />
+										</ion-col>
+										<ion-col col-2>
+										<button ion-button (click)="addAddress()" class="btnBlue" style="color:#fff;100 px;">Add</button>
+										</ion-col>
+										</ion-row>
+										<p class="f14">You cand add up to 3 Certificate to your Animation Circle</p>
+									</div>
+								</div>
+								
+							</div>
+							</form>
+							
+							<div class="container">
+										<div class="form-group" align="center">
+											<input type="submit"  (click)="save(myForm)" class="btnBlue" value="Save" style="font-size: 14px; color:#fff; width: 200px; height: 40px;"/>
+										</div>
+							</div>
+						
+					</div>
+				</div>
+</div>
+			
+	
+</ion-content>

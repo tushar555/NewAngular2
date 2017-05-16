@@ -1,0 +1,67 @@
+<!--
+  Generated template for the MyActions page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>My Actions</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding style="background: #F6EFE5">
+
+      <button ion-button icon-left  full (click)="FollowList()" style="background-color:#00bfff;font-size:15px;">
+        <ion-icon ios="ios-add" md="md-add"></ion-icon>
+            Followed Company List
+      </button>
+        <div *ngFor="let f of Follow">
+          <ion-card *ngIf="f.code=='false'">
+              <ion-card-content>
+                You have not Followed to any Company.
+              </ion-card-content> 
+            </ion-card> 
+          <ion-card  *ngIf="f.code=='true'">
+            <ion-card-content>
+                {{f.company_name}}
+          </ion-card-content>
+          </ion-card>
+        </div>
+
+<br>
+  <span align="center"><h2>Your Applied Jobs</h2></span>
+    <div *ngFor="let jb of fetchdata">
+      <ion-card *ngIf=" jb.code=='false'">
+        <ion-card-content>
+           You have not applied to any jobs.
+        </ion-card-content> 
+      </ion-card> 
+       <ion-card *ngIf=" jb.code=='true'">
+          <ion-card-content>
+       <table width="100%">
+         <tr>
+          <td><b>Job id</b>  </td><td style="padding-left:7px">{{jb.job_id}}</td>
+        </tr>
+        <tr>
+          <td><b>Company Name</b> </td><td style="padding-left:7px">{{jb.company_name}}</td>
+         </tr>
+        <tr>
+          <td> <b>Designation</b> </td><td style="padding-left:7px">{{jb.designation}}</td>
+         </tr>
+        <tr>
+          <td><b>Location </b></td><td style="padding-left:7px">{{jb.location}}</td>
+         </tr>
+        <tr>
+          <td><b>Job Posted By</b> </td><td style="padding-left:7px">{{jb.posted_by}}</td>
+         </tr>
+       </table>
+       </ion-card-content>
+       </ion-card>
+    </div>
+ <br>
+
+</ion-content>

@@ -1,0 +1,271 @@
+<link href="../css/bootstrap.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../css/main.css" />
+		<link href="../css/font-awesome.min.css" rel="stylesheet" />
+    <script src="../js/jquery-1.10.1.min.js"></script> 
+		<script src="../js/script.js"></script> 
+<ion-header >
+  <ion-toolbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>My Profile</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only color="royal" (click)="mainhomepage()">
+        <ion-icon name="close"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content style="background: #F6EFE5">
+	<ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  
+<div class="wrapper myProfile">
+				<div class="container padLR0">
+					<div class="row">
+						<div class="col-xs-12 col-sm-12 profileDetail">
+							<div class="heading posRel">
+								<h4>{{fetchdata.name}}</h4>
+								<span class="f14">{{fetchdata.current_designation}}</span>
+                <span class="rightEdit" (click)="editBasicDetail(fetchdata.email,fetchdata.name,fetchdata.current_designation,fetchdata.current_location,fetchdata.total_experience,fetchdata.current_salary,fetchdata.total_experience_month)" ><i class="edit"></i></span>
+							</div>
+							<div class="row detail marB0">
+								<div class="col-xs-8 col-sm-8 padL0">
+									<span class="colorGrey"> <ion-icon name="pin"></ion-icon> {{fetchdata.current_location}}</span>
+									<span class="colorGrey"> <ion-icon name="briefcase"></ion-icon>
+ {{fetchdata.total_experience}}-{{fetchdata.total_experience_month}}</span>
+										<span class="colorGrey"><i class="fa fa-rupee" aria-hidden="true"></i> {{fetchdata.current_salary}}</span>
+								</div>
+								<div class="col-xs-4 col-sm-4 padR0">
+									<div class="image">
+										<img *ngIf="fetchdata.profile_pic==''" src="img/profile.png" width="100px" height="100px" style="border-radius: 50%;" alt="">
+										<img *ngIf="fetchdata.profile_pic!=''" src={{fetchdata.profile_pic}} width="100px" height="100px" style="border-radius: 50%;" alt="">
+										<!--<span class="edit"></span>-->
+									</div>
+								</div>
+								
+							</div>
+						</div>
+						<div class="col-xs-12 col-sm-12 profileDetail">
+							<div class="heading posRel">
+								<h4>Contact Details</h4>
+								<span class="rightEdit" (click)="contactDetails(fetchdata.email,fetchdata.mobile)" ><i class="edit"></i></span>
+							</div>
+							<br>
+							<ion-row>
+								<ion-col col-1>
+									<span class="colorGrey"> <ion-icon name="mail"></ion-icon></span>
+								</ion-col>
+								<ion-col col-11>
+									<span class="colorGrey">{{fetchdata.email}}</span>
+								</ion-col>
+							</ion-row>
+							<ion-row>
+								<ion-col col-1>
+									<span class="colorGrey">  <ion-icon name="call"></ion-icon></span>
+								</ion-col>
+								<ion-col col-11>
+									<span class="colorGrey">{{fetchdata.mobile}}</span>
+								</ion-col>
+							</ion-row>
+							
+						
+						</div>
+						<div class="col-xs-12 col-sm-12 profileDetail">
+							<div class="heading posRel">
+								<h4>Profile Summary</h4>
+								<span class="rightEdit" (click)="profileSummary(fetchdata.email,fetchdata.profile_summary)"><i class="edit"></i></span>
+							</div>
+							<p class="colorGrey f14">{{fetchdata.profile_summary}}</p>
+						</div>
+						
+						<div class="col-xs-12 col-sm-12 profileDetail">
+							<div class="heading posRel">
+								<h4>Key Skill</h4>
+							</div>
+							<div *ngFor="let k of key_skill">
+							<div *ngIf="k.key_skill!=''"  class="verify red inlineBlock marB5 padLR10">{{k.key_skill}}</div>
+								 <span style="float: right; font-size: 15px;"><ion-icon (click)="deletekeyskill(k.key_skill,fetchdata.email)" name="trash"></ion-icon></span>
+								 	
+							</div>	
+							
+							<div class="col-xs-12 col-sm-12 padL0 padR0">
+								<div class="addMore" (click)="keySkill(fetchdata.email)">
+									<span>Add More Key Skills</span>
+								</div>
+							</div>
+						</div>
+						<div class="col-xs-12 col-sm-12 profileDetail">
+							<div class="heading posRel">
+								<h4>Employment Detail</h4>
+								<!--<span><img src="../img/removeIcon.png"></span>-->
+							</div>
+							<div *ngFor="let we of work_exp">
+							<div class="heading posRel marT20" >
+								<h4>{{we.designation}}</h4>
+								<span class="f14">{{we.organization}}</span>
+								<span class="rightEdit" (click)="deletedetail(we.designation,fetchdata.email)" style="font-size:15px;" > <ion-icon  name="trash"></ion-icon></span>
+							</div>
+							<div class="row detail">
+								<span class="colorGrey f14">{{we.start_date}} &nbsp; TO &nbsp; {{we.end_date}}</span><br>
+								<span class="colorGrey f14">{{we.profile_description}}</span>
+							</div>
+							</div>
+						<div class="addMore" (click)="workExperiance(fetchdata.email)">
+									<span>Add Employment Detail</span>
+						</div>	
+						 <hr> 
+						<div class="col-xs-12 col-sm-12 profileDetail">
+							<div class="heading posRel">
+								<h4>Project Details</h4>
+								<div *ngFor="let p of project_name">
+									<b>{{p.projects}}</b><span style="float: right; font-size: 15px;"><ion-icon (click)="deleteproject(p.projects,fetchdata.email)" name="trash"></ion-icon><br></span>	<br>
+									   {{p.pr_start_date}} - {{p.pr_end_date}}	 <br>	 
+								</div>
+								<div class="addMore" (click)="Project(fetchdata.email)">
+									<span>Add More Projects</span>
+								</div>
+							</div>
+						</div>
+						
+						<div class="col-xs-12 col-sm-12 profileDetail">
+							<div class="heading posRel">
+								<h4>Showreel Links</h4>
+								<div *ngFor="let s of skill">
+									<span *ngIf="s.skill!=''">
+									<span class="verify red inlineBlock marB5 padLR10 " (click)="openurl(s.skill)">{{s.skill}}</span>
+											<span style="float: right; font-size: 15px;"><ion-icon (click)="deleteshowreel(s.skill,fetchdata.email)" name="trash"></ion-icon></span>
+									</span>
+									
+								</div>
+								
+								<div class="addMore" (click)="ITSkill(fetchdata.email)">
+									<span>Add More Showrills</span>
+								</div>
+							</div>
+						</div>
+						
+						<div class="col-xs-12 col-sm-12 profileDetail">
+							<div class="heading posRel">
+								<h4>Educational Details</h4>
+							</div>
+							<div *ngFor="let e of education" class="">
+							  <span  *ngIf="e.education!=''">	
+								<h4 >{{e.education}}, &nbsp;&nbsp;</h4> <span style="float: right; font-size: 15px;"><ion-icon (click)="deleteeducation(e.education,fetchdata.email)" name="trash"></ion-icon></span>
+								<span class="colorGrey f14" >{{e.specialization}},&nbsp;&nbsp;{{e.university}},&nbsp;&nbsp;
+									{{e.passout}},&nbsp;&nbsp;{{e.time}}</span>
+									
+							  </span>		
+							</div>
+							<div class="addMore" (click)="addEducation(fetchdata.email)">
+									<span>Add More Educational Details</span>
+							</div>
+							<hr/>
+							<div >
+								<h4>Other Certifications</h4>
+								<div  *ngFor="let c of certificate">
+									<span class="colorGrey f14" >{{c.certifications}}
+									 <span style="float: right; font-size: 15px;"><ion-icon (click)="deletecertificate(c.certifications,fetchdata.email)" name="trash"></ion-icon></span>	
+									</span>
+									 
+								</div>
+								<div class="addMore" (click)="certifications(fetchdata.email)">
+									<span>Add More Certifications</span>
+							    </div>			
+							</div>
+						</div>
+						
+						
+						<div class="col-xs-12 col-sm-12 profileDetail">
+							<div class="heading posRel">
+								<h4>Personal Details</h4>
+								<span class="rightEdit" (click)="personaldetails(fetchdata)"><i class="edit"></i></span>
+							</div>
+							<div class="pwDetails">
+								<ul>
+									<li>
+										<aside><span class="colorGrey f14">Date of Birth</span></aside>
+										<aside><span class="f14">{{fetchdata.dob}}</span></aside>
+									</li>
+									<li>
+										<aside><span class="colorGrey f14">Gender</span></aside>
+										<aside><span class="f14">{{fetchdata.gender}}</span></aside>
+									</li>
+									<li>
+										<aside><span class="colorGrey f14">Hometown</span></aside>
+										<aside><span class="f14">{{fetchdata.home_town}}</span></aside>
+									</li>
+									<li>
+										<aside><span class="colorGrey f14">Pin Code</span></aside>
+										<aside><span class="f14">{{fetchdata.pincode}}</span></aside>
+									</li>
+									<li>
+										<aside><span class="colorGrey f14">Marital Status</span></aside>
+										<aside><span class="f14">{{fetchdata.marital_status}}</span></aside>
+									</li>
+									<li>
+										<aside><span class="colorGrey f14">Permenent Address</span></aside>
+										<aside><span class="f14">{{fetchdata.permanent_add}}</span></aside>
+									</li>
+									
+								</ul>
+							</div>
+						</div>
+						<table width="100%" border="0" padding>
+							<span align="center"> <h4 align="center">Language Known</h4></span>		
+							<tr  *ngFor="let l of languages" style="padding-top:10px; padding-left: 20px;">	
+								<td style="line-height: 15px;font-size: 16px;padding-top:10px; padding-left: 20px;">{{l.lang}}
+								<span style="float: right; font-size: 15px;"><ion-icon (click)="deletelanguage(l.lang,fetchdata.email)" name="trash"></ion-icon></span>	
+								</td><br><br>
+							</tr>	
+          			</table>
+					  		<div class="addMore" (click)="addlanguage(fetchdata.email)">
+									<span>Add More languages known</span>
+							</div><br>
+						<!--<div class="col-xs-12 col-sm-12 profileDetail language">
+							<div class="heading posRel">
+								<h4>Language Known</h4>
+							</div>
+
+							<div class="row">
+								<div class="col-xs-4 col-md-4 padL0">
+									<label class="fontB">Language</label>
+								</div>
+
+								<div class="col-xs-7 col-md-7 padL0">
+									<label class="fontB">Proficiency</label>
+								</div>
+							</div>	
+							<div class="row">	
+								<div *ngFor="let l of lang">
+									<div class="col-xs-7 col-md-7 padL0" >
+										<span class="colorGrey f14">{{l.lang}}</span>
+									</div>
+									<div class="col-xs-4 col-md-4 padL0" >
+										<span class="colorGrey f14">{{l.proficiency}}</span>
+									</div>
+								</div>
+								<div class="addMore" (click)="addlanguage(fetchdata.email)">
+										<span>Add More languages known</span>
+								</div><br/>
+							</div>
+				      </div>-->
+					  <hr/>
+					<div class="col-xs-12 col-sm-12 ">
+						<div class="heading posRel">
+							<h4>Attached CV</h4>
+
+							<div class="form-group posRel marT10" (click)="resumeupload(fetchdata.email,fetchdata.resume_upload_date,fetchdata.resume_link)">
+							
+								<input type="text" class="form-control select bgGrey resumeIcon" placeholder=" Upload {{fetchdata.name}}'s Resume" readonly />
+							</div>
+						</div>
+					</div>
+			 </div>
+		</div> 
+	</div>	
+</div>		
+</ion-content>

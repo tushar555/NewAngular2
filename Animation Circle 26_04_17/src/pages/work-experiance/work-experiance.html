@@ -1,0 +1,79 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="width=device-width initial-scale=1.0 maximum-scale=1.0 user-scalable=no" />
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="format-detection" content="address=no" />
+		
+		<link href="../css/bootstrap.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../css/main.css" />
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>
+      Work Experiance
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content style="background: #F6EFE5">
+<div class="wrapper">
+				<div class="container padLR0">
+					<div class="row">
+						<form>
+							<div class="form-group">
+								<label>Designation</label>
+								<input type="text" class="form-control"  name="data.designation" [(ngModel)]="data.designation" value="fetchdata.designation" />
+							</div>
+							<div class="form-group">
+								<label>Organization</label>
+								<input type="text" class="form-control"  name="data.organization" [(ngModel)]="data.organization" value="data.organization" />
+							</div>
+							
+							<div class="form-group">
+								<div class="col-sm-3 col-xs-5 padLR0">
+								<label class="padT5">Current Company?</label>
+								</div>
+								<select class="full bgGrey" name="data.is_current_company" [(ngModel)]="data.is_current_company">
+								  <option>Select</option>
+								  <option value="Yes">Yes</option>
+								  <option value="No">No</option>
+								</select>
+							</div>
+								<div class="form-group">
+								<label>Started Working From</label>
+								<input type="date" class="form-control" name="data.start_date" [(ngModel)]="data.start_date" value="data.start_date" />
+							</div>
+							<div class="form-group">
+								<label>Worked Till</label>
+								<input type="date" class="form-control" name="data.end_date" [(ngModel)]="data.end_date" value="data.end_date"/>
+							</div>
+						
+							<div class="form-group">
+							  <label for="comment">Describe your Job Profile</label>
+								<textarea class="form-control" rows="5" name="data.profile_description" [(ngModel)]="data.profile_description"></textarea>
+								<span class="colorGrey f12 floatR padT5">0/4000</span>
+							</div>
+							<div class="form-group">
+								<label>Notice Period</label>
+								<select class="full bgGrey" name="data.notice_period" [(ngModel)]="data.notice_period">
+								  <option>Select</option>
+								  <option>15 Day</option>
+								  <option>1 Month</option>
+								</select>
+							</div>
+						</form>
+
+					</div>
+				</div>
+				<div class="footer">
+					<div class="container">
+						<div class="row noMar">
+							<div class="col-xs-8 col-sm-6 col-sm-pull-3 col-sm-push-3 col-xs-pull-2 col-xs-push-2">
+								<div class="form-group">
+									<input type="button" class="btn btnBlue" (click)="save(data)" value="Save" />
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+</ion-content>

@@ -1,0 +1,139 @@
+<link href="../css/bootstrap.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../css/main.css" />
+
+
+<ion-header >
+  <ion-toolbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Seeker</ion-title>
+    
+    <ion-buttons end>
+     <button ion-button icon-only color="royal" (click)="WallPost()">
+        <img src="img/wall-post.png" style="height: 25px;width:25px">
+      </button>&nbsp;  
+      
+               <button ion-button icon-only (click)="presentPopover($event)" >
+  <ion-icon name="more"></ion-icon>
+</button>
+       <!--<button ion-button icon-only (click)="presentPopover($event)" >
+  <ion-icon name="more"></ion-icon></button>-->
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content style="background: #F6EFE5">
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+      pullingIcon="arrow-dropdown"
+      pullingText="Pull to refresh"
+      refreshingSpinner="circles"
+      refreshingText="Refreshing...">
+  </ion-refresher-content>
+  </ion-refresher>
+ <ion-searchbar
+  [(ngModel)]="myInput"
+  [showCancelButton]="shouldShowCancel"
+  (ionInput)="onInput(myInput)"
+  (ionCancel)="onCancel($event)">
+</ion-searchbar>
+
+
+<div *ngIf="status=='c_false'">
+  <ion-card>
+    <ion-card-content>
+  <p style="text-align: center;"><b>No record found..</b> <ion-icon name="md-sad" style="font-size: 20px;"></ion-icon> </p>
+    </ion-card-content>
+  </ion-card>
+</div>
+<div *ngIf="status==false">
+   <ion-card>
+    <ion-card-content>
+  <p style="text-align: center;"><b>Sorry No posts yet..</b> <ion-icon name="md-sad" style="font-size: 20px;"></ion-icon> </p>
+    </ion-card-content>
+  </ion-card>
+</div>
+<div *ngIf="status==true"> 
+
+  <ion-card *ngFor="let a of linkarray">
+
+<div *ngIf="a[0].image==''">
+<span *ngIf="a[1].changingThisBreaksApplicationSecurity!=''"><iframe width="100%" height="200px" [src]="a[1]" frameborder="0" allowfullscreen></iframe></span>
+
+<ion-item (click)="gotoprofile(a[0].posted_by_email)">
+    
+    <h2>{{a[0].posted_by_name}}</h2>
+    <p>{{a[0].post_date}}, {{a[0].post_time}}</p><br>
+     <p>{{a[0].post_text}}</p>  
+  </ion-item>
+  <ion-item *ngIf="a[1].changingThisBreaksApplicationSecurity!=''">
+     <p (click)=openurl(a[1].changingThisBreaksApplicationSecurity)>{{a[1].changingThisBreaksApplicationSecurity}}</p>
+  </ion-item> 
+  <ion-row>
+    <ion-col col-3>
+      <button *ngIf="a[0].code=='true'"  ion-button icon-left clear small (click)="Like(a[0])">
+         <ion-icon style="font-size:22px;" name="thumbs-up"  color="primary"></ion-icon>
+        <p style="font-size:17px;">{{a[0].count}} Likes</p>
+      </button>
+        <button *ngIf="a[0].code1=='true'" (click)="Like(a[0])" color="primary" ion-button icon-left clear small>
+         <ion-icon style="font-size:22px;" name="thumbs-up"></ion-icon>
+        <p style="font-size:17px;">{{a[0].count}} Likes</p>
+      </button>
+    </ion-col>
+     <ion-col col-5 align="center" (click)="Invite(a[0])">
+      <button ion-button icon-left clear small>
+        <ion-icon style="font-size:25px;" name="ios-share-alt"></ion-icon>
+        <p style="font-size:17px;">Share</p>
+      </button>
+    </ion-col>
+  </ion-row>
+</div>
+</ion-card>
+
+ <div *ngFor="let a of fetchdata">
+    <ion-card *ngIf="a.post_link==''">
+   
+  <ion-item (click)="gotoprofile(a.posted_by_email)">
+    
+    <h2>{{a.posted_by_name}}</h2>
+    <p>{{a.post_date}}, {{a.post_time}}</p>
+  </ion-item>
+
+ <div *ngIf="a.image!='' " >
+    <img  src="{{a.image}}">
+  </div>
+
+  <ion-card-content >
+    <p>{{a.post_text}}</p><br>
+    
+     <!--<p (click)="openurl(a.post_link)">{{a.post_link}}</p><br>-->
+  <!--<div *ngIf="a.image==''">  <iframe width="100%" height="200px"  [src]="youlink" frameborder="0" allowfullscreen></iframe></div>-->
+  </ion-card-content>
+
+  <ion-row>
+    <ion-col col-3>
+      <button *ngIf="a.code=='true'"  ion-button icon-left clear small (click)="Like(a)">
+         <ion-icon style="font-size:22px;" name="thumbs-up"  color="primary"></ion-icon>
+        <p style="font-size:17px;">{{a.count}} Likes</p>
+      </button>
+        <button *ngIf="a.code1=='true'" (click)="Like(a)" color="primary" ion-button icon-left clear small>
+         <ion-icon style="font-size:22px;" name="thumbs-up"></ion-icon>
+        <p style="font-size:17px;">{{a.count}} Likes</p>
+      </button>
+    </ion-col>
+     <ion-col col-5 align="center" (click)="Invite(a)">
+      <button ion-button icon-left clear small>
+        <ion-icon style="font-size:25px;" name="ios-share-alt"></ion-icon>
+        <p style="font-size:17px;">Share</p>
+      </button>
+    </ion-col>
+  </ion-row>
+
+</ion-card>
+  </div> 
+
+</div>
+
+</ion-content>

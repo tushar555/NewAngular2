@@ -1,0 +1,78 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="width=device-width initial-scale=1.0 maximum-scale=1.0 user-scalable=no" />
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="format-detection" content="address=no" />
+		
+		<link href="../css/bootstrap.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../css/main.css" />
+		<link href="../css/font-awesome.min.css" rel="stylesheet" />
+	  
+<ion-header >
+  <ion-toolbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Job Details</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only color="royal" (click)="mainhomepage()">
+        <ion-icon name="close"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content style="background: #F6EFE5">
+<div class="wrapper myProfile">
+				<div class="container padLR0">
+					<div class="row">
+						<div class="col-xs-12 col-sm-12 profileDetail">
+							<div class="heading posRel">
+								<h4>{{profile}}</h4>
+							</div>
+							<div class="heading posRel marT20">
+								<h4>{{company}}</h4>
+							</div>
+							<div class="row detail">
+								<span class="colorGrey f14">{{experience}} years/{{city}}</span>
+								<span class="colorGrey f14">Not Disclosed / Posted on {{post_date}}}</span>
+							</div>
+							<div class="heading posRel marT10">
+								<h4>Job Description</h4>
+								<span class="f14">Position Summary</span>
+							</div>
+							<div class="row detail">
+								<span class="colorGrey f14">{{description}}</span>
+							</div>
+							
+						</div>							
+						<div class="col-xs-12 col-sm-12 profileDetail" style="border:none;">
+							<div class="heading posRel">
+								<h4>Work Details</h4>
+							
+							</div>
+							<div class="pwDetails">
+								<ul>
+									<li>
+										<aside><span class="colorGrey f14">Industry</span></aside>
+										<aside><span class="f14">{{industry}}</span></aside>
+									</li>
+									<li>
+										<aside><span class="colorGrey f14">Key Skills</span></aside>
+										<aside><span class="f14">{{key_skill}}</span></aside>
+									</li>
+									<li>
+										<aside><span class="colorGrey f14">Education</span></aside>
+										<aside><span class="f14">{{education}}</span></aside>
+									</li>
+								</ul>
+							</div>
+						<span *ngIf="status" style="text-align:center;font-size:30px;margin-top:5%;"><img src="img/sucess.png" class="successtick" style="width: 30px;height:30px"> Apply Successful</span>
+            
+
+						</div>
+						</div>
+					</div>
+				</div>
+			
+</ion-content>

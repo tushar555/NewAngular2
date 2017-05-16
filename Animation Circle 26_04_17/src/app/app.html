@@ -1,0 +1,67 @@
+
+<ion-menu [content]="content" side="left" id="menu1">
+ <ion-content style="background: url(img/dashBg1.png) no-repeat 0 0;background-size:100% 100%; position: fixed; left:0; top:0;  height:100%;">
+    <table border="0" width="100%" menuClose>
+    <tr>
+        <td align="center" (click)="openprofile(uem)">
+            <img *ngIf="this.profile_pic!=''" src="{{this.profile_pic}}" width="100px" height="100px" style="border-radius: 50%;margin-top:10px">
+            <img *ngIf="this.profile_pic==''" src="img/edit_user-512.png" width="100px" height="100px" style="border-radius: 50%;   ;margin-top:10px">
+           <br>&nbsp;&nbsp;<img src="img/Edit-26.png" height="18px;"><label class="name" style="color: #a0a4aa; font-size: 12px;"><b><u>Edit Profile</u></b></label>
+            <br><label class="name fontB" style="color: white; font-size: 20px;"><b>&nbsp;{{uem}}</b></label>
+          </td>
+    </tr>
+    
+    </table>
+    <hr style="border-bottom: 1px solid white;">
+   <div *ngFor="let p of pages" > 
+      
+   <ion-row>
+    <ion-col class="ioncol" menuClose (click)="openPage(p)">
+    		<table border="0" class="bordermargin">
+            <tr>
+            	<td><img src={{p.icon}} width="25px" height="25px" style="margin-left:10px"></td>
+            	<td class="menuli" style="padding-left:25px; color: white;"> {{p.title}}</td>
+            </tr>
+            </table>
+            
+    </ion-col>
+    
+  </ion-row>
+   <hr style="border-bottom: 1px solid white;">
+   </div>
+   <ion-row>
+     <ion-col>
+      	<table border="0" class="bordermargin">
+            <tr>
+              <td><img src="img/invite.png" width="20px" height="20px" style="margin-left:10px"></td>
+              <td class="menuli" style="padding-left:25px; color: white;" (click)="Invite()"> Invite </td>
+            </tr>
+            </table>
+    </ion-col>
+   </ion-row>  
+<hr style="border-bottom: 1px solid white;">
+  <ion-row>
+    <ion-col class="ioncol" menuClose >
+    		<table border="0" class="bordermargin" (click)="signout()">
+            <tr>
+            	<td><img src="img/logout.png" width="20px" height="20px" style="margin-left:10px"></td>
+            	<td class="menuli" style="color: white ;padding-left:25px"> Logout</td>
+            </tr>
+            </table>
+            
+    </ion-col>
+  </ion-row>
+   <hr style="border-bottom: 1px solid white;">
+    <!--<ion-list>
+      <button menuClose ion-item >
+       
+      </button>
+       <button menuClose ion-item (click)="signout()">
+        Logout
+      </button>
+    </ion-list>-->
+  </ion-content>
+
+
+</ion-menu>
+<ion-nav [root]="rootPage" #content swipeBackEnabled="true"></ion-nav>
